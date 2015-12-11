@@ -77,9 +77,11 @@ public class DruidDataSourceProvider implements DataSourceProvider {
     this("default");
   }
 
-  public DruidDataSourceProvider(String dsName) {
+  public DruidDataSourceProvider(Prop prop,String dsName) {
     this.dsName = dsName;
-    Prop prop = Proper.use("application.properties");
+    if(prop.equals(null)){
+      prop = Proper.use("application.properties");
+    }
     this.url = prop.get("db." + dsName + ".url");
     checkNotNull(this.url, "Could not found database url for " + "db." + dsName + ".url");
     this.user = prop.get("db." + dsName + ".user");
