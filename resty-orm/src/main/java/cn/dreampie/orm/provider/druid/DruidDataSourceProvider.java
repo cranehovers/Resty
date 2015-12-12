@@ -74,7 +74,7 @@ public class DruidDataSourceProvider implements DataSourceProvider {
   private boolean showSql = false;
 
   public DruidDataSourceProvider() {
-    this("default");
+    this(null,"default");
   }
 
   public DruidDataSourceProvider(String dsName) {
